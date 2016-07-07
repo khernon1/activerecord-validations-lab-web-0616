@@ -11,8 +11,9 @@ RSpec.describe Post, type: :model do
       category: "Fiction"
     }
   end
-
+  
   let(:valid_post) { Post.new(valid_attrs) }
+  
   let(:missing_title) { Post.new(valid_attrs.except(:title)) }
   let(:short_content) { Post.new(valid_attrs.merge(content: "too short")) }
   let(:long_summary) { Post.new(valid_attrs.merge(summary: content)) }
@@ -21,9 +22,10 @@ RSpec.describe Post, type: :model do
 
   it "is valid" do
     expect(valid_post).to be_valid
+
   end
 
-  it "is invalid without a title" do
+  it "is invalid without a title" do        
     expect(missing_title).to be_invalid
   end
 
